@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teacher Dashboard</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <h2>Teacher Panel</h2>
+      <nav>
+        <button class="nav-link active" data-section="overview">Overview</button>
+        <button class="nav-link" data-section="groups">Groups</button>
+        <button class="nav-link" data-section="students">Students</button>
+        <button class="nav-link" data-section="attendance">Attendance</button>
+        <button class="nav-link" data-section="points">Points</button>
+        <button class="nav-link" data-section="lectures">Lectures</button>
+        <button class="nav-link" data-section="notifications">Notifications</button>
+      </nav>
+      <button id="logoutBtn" class="btn danger">Logout</button>
+    </aside>
+
+    <main class="content">
+      <header class="page-header">
+        <h1 id="welcomeTeacher">Welcome Teacher</h1>
+      </header>
+
+      <section id="overview" class="section active">
+        <div class="cards-grid" id="statsGrid"></div>
+      </section>
+
+      <section id="groups" class="section">
+        <h3>Create Group</h3>
+        <form id="groupForm" class="inline-form">
+          <input type="text" id="groupName" placeholder="Group name" required />
+          <button class="btn primary" type="submit">Create</button>
+        </form>
+        <h3>All Groups</h3>
+        <div id="groupsList" class="cards-grid"></div>
+      </section>
+
+      <section id="students" class="section">
+        <h3>Create Student Account</h3>
+        <form id="studentForm" class="stack">
+          <div class="inline-form">
+            <input type="text" id="studentName" placeholder="Student name" required />
+            <input type="email" id="studentEmail" placeholder="Student email" required />
+          </div>
+          <div class="inline-form">
+            <input type="password" id="studentPassword" placeholder="Temporary password" minlength="6" required />
+            <select id="studentGroup" required></select>
+          </div>
+          <button class="btn primary" type="submit">Create Student</button>
+        </form>
+
+        <h3>Search Students</h3>
+        <input type="search" id="studentSearch" placeholder="Search by name or email" />
+        <div id="studentsList" class="cards-grid"></div>
+      </section>
+
+      <section id="attendance" class="section">
+        <h3>Record Attendance</h3>
+        <form id="attendanceForm" class="inline-form wrap">
+          <select id="attendanceGroup" required></select>
+          <select id="attendanceStudent" required></select>
+          <input type="date" id="attendanceDate" required />
+          <select id="attendanceStatus" required>
+            <option value="Present">Present</option>
+            <option value="Absent">Absent</option>
+          </select>
+          <button class="btn primary" type="submit">Save</button>
+        </form>
+      </section>
+
+      <section id="points" class="section">
+        <h3>Add Points / Grade</h3>
+        <form id="pointsForm" class="inline-form wrap">
+          <select id="pointsGroup" required></select>
+          <select id="pointsStudent" required></select>
+          <input type="number" id="pointsValue" placeholder="Points" required />
+          <input type="text" id="pointsNote" placeholder="Note" required />
+          <button class="btn primary" type="submit">Add</button>
+        </form>
+      </section>
+
+      <section id="lectures" class="section">
+        <h3>Add Lecture</h3>
+        <form id="lectureForm" class="stack">
+          <div class="inline-form">
+            <select id="lectureGroup" required></select>
+            <input type="text" id="lectureTitle" placeholder="Lecture title" required />
+            <input type="date" id="lectureDate" required />
+          </div>
+          <textarea id="lectureContent" placeholder="Lecture content" required></textarea>
+          <button class="btn primary" type="submit">Publish Lecture</button>
+        </form>
+        <div id="lecturesList" class="cards-grid"></div>
+      </section>
+
+      <section id="notifications" class="section">
+        <h3>Send Notification</h3>
+        <form id="notificationForm" class="stack">
+          <div class="inline-form">
+            <select id="notificationGroup" required></select>
+            <input type="text" id="notificationTitle" placeholder="Title" required />
+          </div>
+          <textarea id="notificationMessage" placeholder="Message" required></textarea>
+          <button class="btn primary" type="submit">Send</button>
+        </form>
+      </section>
+
+      <p id="teacherMessage" class="message"></p>
+      <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="spinner"></div>
+        <span>Loading...</span>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="./js/pages/teacher.js"></script>
+</body>
+</html>

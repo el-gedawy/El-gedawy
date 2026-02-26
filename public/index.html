@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Management Web App | Login</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <main class="auth-page">
+    <section class="auth-card">
+      <h1>Student Management Web App</h1>
+      <p class="muted">Sign in as teacher or student.</p>
+      <form id="loginForm" class="stack">
+        <label>
+          Email
+          <input type="email" id="email" required placeholder="name@school.com" />
+        </label>
+        <label>
+          Password
+          <input type="password" id="password" required minlength="6" />
+        </label>
+        <button type="submit" class="btn primary">Login</button>
+      </form>
+      <p id="authMessage" class="message"></p>
+      <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="spinner"></div>
+        <span>Signing in...</span>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="./js/pages/login.js"></script>
+</body>
+</html>
