@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <h2>Student Panel</h2>
+      <nav>
+        <button class="nav-link active" data-section="summary">Summary</button>
+        <button class="nav-link" data-section="attendance">Attendance</button>
+        <button class="nav-link" data-section="lectures">Lectures</button>
+        <button class="nav-link" data-section="notifications">Notifications</button>
+      </nav>
+      <button id="logoutBtn" class="btn danger">Logout</button>
+    </aside>
+
+    <main class="content">
+      <header class="page-header">
+        <h1 id="welcomeStudent">Welcome Student</h1>
+        <p id="groupName" class="muted"></p>
+      </header>
+
+      <section id="summary" class="section active">
+        <div class="cards-grid" id="studentStats"></div>
+      </section>
+
+      <section id="attendance" class="section">
+        <h3>Attendance History</h3>
+        <div id="attendanceList" class="cards-grid"></div>
+      </section>
+
+      <section id="lectures" class="section">
+        <h3>Lectures</h3>
+        <div id="lecturesList" class="cards-grid"></div>
+      </section>
+
+      <section id="notifications" class="section">
+        <h3>Notifications</h3>
+        <div id="notificationsList" class="cards-grid"></div>
+      </section>
+
+      <p id="studentMessage" class="message"></p>
+      <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="spinner"></div>
+        <span>Loading...</span>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="./js/pages/student.js"></script>
+</body>
+</html>
